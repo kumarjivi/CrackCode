@@ -20,4 +20,17 @@ public class SingleNode {
 	}
 	
 	public SingleNode() {super();}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj == null) {
+			return false;
+		}
+		if(!SingleNode.class.isAssignableFrom(obj.getClass())) {
+			return false;
+		}
+		SingleNode n = (SingleNode)obj;
+		return (this.getData() == n.getData());
+	}
+	
 }

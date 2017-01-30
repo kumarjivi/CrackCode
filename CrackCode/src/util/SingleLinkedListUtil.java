@@ -26,4 +26,13 @@ public class SingleLinkedListUtil {
 		}
 		System.out.println();
 	}
+	
+	public static String getListDataWithoutSpace(SingleNode singleNode) {
+		StringBuilder str = new StringBuilder();
+		while(singleNode != null) {
+			str.append(singleNode.getData());
+			singleNode = singleNode.getNext();
+		}
+		return str.toString();
+	}
 }

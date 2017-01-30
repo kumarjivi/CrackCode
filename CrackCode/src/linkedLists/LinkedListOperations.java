@@ -55,4 +55,74 @@ public class LinkedListOperations {
 		prev.setNext(nodeToInsert);
 		return headCopy;
 	}
+	
+	public SingleNode deleteANode(SingleNode head, SingleNode nodeToDelete) {
+		if(head == nodeToDelete) {
+			return deleteFirstNode(head);
+		}
+		SingleNode headCopy = head;
+		SingleNode prev = null;
+		SingleNode curr = head;
+		SingleNode next = curr;
+		if(head != null) {
+			next = curr.getNext();
+			while(next != null && curr != (nodeToDelete)) {
+//			while(next != null && !curr.equals(nodeToDelete)) {
+				prev = curr;
+				curr = next;
+				next = next.getNext();
+			}
+			prev.setNext(curr.getNext());
+		}
+		return headCopy;
+	}
+	
+	public SingleNode deleteFirstNode(SingleNode head) {
+		if(head != null) {
+			return head.getNext();
+		}
+		return head;
+	}
+	
+	public SingleNode deleteLastNode(SingleNode head) {
+		SingleNode headCopy = head;
+		SingleNode prev = null;
+		SingleNode curr = head;
+		SingleNode next = curr;
+		if(curr != null) {
+			next = curr.getNext();
+			while(next != null) {
+				prev = curr;
+				curr = next;
+				next = next.getNext();
+			}
+			prev.setNext(null);;
+		}
+		return headCopy;
+	}
+	
+	public SingleNode deleteNodeByPosition(SingleNode head, int positionToDelete) {
+		SingleNode headCopy = head;
+		if(positionToDelete == 1) {
+			return deleteFirstNode(head);
+		} else if(positionToDelete == SingleLinkedListUtil.getlength(head)) {
+			return deleteLastNode(head);
+		} else {
+			int pos = 1;
+			SingleNode prev = null;
+			SingleNode curr = head;
+			SingleNode next = curr;
+			if(head != null) {
+				next = curr.getNext();
+				while(next != null && pos != positionToDelete) {
+					prev = curr;
+					curr = next;
+					next = next.getNext();
+					pos++;
+				}
+				prev.setNext(curr.getNext());
+			}
+		}
+		return headCopy;
+	}
 }

@@ -58,4 +58,71 @@ public class LinkedListOperationsTest {
 		head = operations.insertNode(head, node, 10);
 		assertEquals(6, SingleLinkedListUtil.getlength(head));
 	}
+	
+	@Test
+	public void testDeletionAtEnd() {
+		LinkedListOperations operations = new LinkedListOperations();
+		SingleNode head = new SingleNode(1, null);
+		SingleNode node = new SingleNode(2, null);
+		operations.insertNode(head, node, 10);
+		node = new SingleNode(3, null);
+		operations.insertNode(head, node, 10);
+		node = new SingleNode(4, null);
+		operations.insertNode(head, node, 10);
+		node = new SingleNode(5, null);
+		operations.insertNode(head, node, 10);
+		node = new SingleNode(6, null);
+		operations.insertNode(head, node, 10);
+		node = new SingleNode(7, null);
+		operations.insertNode(head, node, 10);
+		head = operations.deleteLastNode(head);
+		String content = SingleLinkedListUtil.getListDataWithoutSpace(head);
+		assertEquals("123456", content);
+		head = operations.deleteLastNode(head);
+		content = SingleLinkedListUtil.getListDataWithoutSpace(head);
+		assertEquals("12345", content);
+	}
+	
+	@Test
+	public void testDeletionOfANode() {
+		LinkedListOperations operations = new LinkedListOperations();
+		SingleNode head = new SingleNode(1, null);
+		SingleNode node = new SingleNode(2, null);
+		operations.insertNode(head, node, 10);
+		node = new SingleNode(3, null);
+		operations.insertNode(head, node, 10);
+		SingleNode node4 = new SingleNode(4, null);
+		operations.insertNode(head, node4, 10);
+		node = new SingleNode(5, null);
+		operations.insertNode(head, node, 10);
+		node = new SingleNode(6, null);
+		operations.insertNode(head, node, 10);
+		node = new SingleNode(7, null);
+		operations.insertNode(head, node, 10);
+		head = operations.deleteANode(head, node4);
+		String content = SingleLinkedListUtil.getListDataWithoutSpace(head);
+		assertEquals("123567", content);
+	}
+	
+	@Test
+	public void testDeletionByPosition() {
+		LinkedListOperations operations = new LinkedListOperations();
+		SingleNode head = new SingleNode(1, null);
+		SingleNode node = new SingleNode(2, null);
+		operations.insertNode(head, node, 10);
+		node = new SingleNode(3, null);
+		operations.insertNode(head, node, 10);
+		SingleNode node4 = new SingleNode(4, null);
+		operations.insertNode(head, node4, 10);
+		node = new SingleNode(5, null);
+		operations.insertNode(head, node, 10);
+		node = new SingleNode(6, null);
+		operations.insertNode(head, node, 10);
+		node = new SingleNode(7, null);
+		operations.insertNode(head, node, 10);
+		head = operations.deleteNodeByPosition(head, 3);
+		String content = SingleLinkedListUtil.getListDataWithoutSpace(head);
+		assertEquals("124567", content);
+	}
+	
 }
