@@ -1,9 +1,9 @@
-package linkedLIsts;
+package linkedLists;
 /**
- * 
- * @author Kumar
  * In all the exercises related to Single linked lists, we will use this class as the node
  * to construct lists.
+ * @author Kumar
+ * 
  */
 public class SingleNode {
 	public int data;
@@ -15,9 +15,8 @@ public class SingleNode {
 	public void setNext(SingleNode singleNode) { this.next = singleNode; }
 	
 	public SingleNode (int value, SingleNode next) {
-		SingleNode singleNode = new SingleNode();
-		singleNode.setData(value);
-		singleNode.setNext(next);
+		this.setData(value);
+		this.setNext(next);
 	}
 	
 	public SingleNode() {super();}

@@ -1,4 +1,6 @@
-package linkedLIsts;
+package linkedLists;
+
+import util.SingleLinkedListUtil;
 
 public class ReverseLinkedListTest {
 
@@ -12,19 +14,9 @@ public class ReverseLinkedListTest {
 		SingleNode one = new SingleNode(1, two);
 		SingleNode zero = new SingleNode(0, one);
 		
-		
 		ReverseLinkedList list = new ReverseLinkedList();
 		SingleNode result = list.getReverseList(zero);
-		printList(result);
+		SingleLinkedListUtil.printList(result);
 		
-	}
-
-	public static void printList(SingleNode singleNode) {
-		System.out.println("printing start");
-		while(singleNode != null) {
-			System.out.println("in loop");
-			System.out.print(singleNode.getData());
-			singleNode = singleNode.getNext();
-		}
 	}
 }
