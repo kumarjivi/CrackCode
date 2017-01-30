@@ -3,28 +3,28 @@ package linkedLIsts;
 public class ReverseLinkedListTest {
 
 	public static void main(String[] args) {
-		Node seven = new Node(7, null);
-		Node six = new Node(6, seven);
-		Node five = new Node(5, six);
-		Node four = new Node(4, five);
-		Node three = new Node(3, four);
-		Node two = new Node(2, three);
-		Node one = new Node(1, two);
-		Node zero = new Node(0, one);
+		SingleNode seven = new SingleNode(7, null);
+		SingleNode six = new SingleNode(6, seven);
+		SingleNode five = new SingleNode(5, six);
+		SingleNode four = new SingleNode(4, five);
+		SingleNode three = new SingleNode(3, four);
+		SingleNode two = new SingleNode(2, three);
+		SingleNode one = new SingleNode(1, two);
+		SingleNode zero = new SingleNode(0, one);
 		
 		
 		ReverseLinkedList list = new ReverseLinkedList();
-		Node result = list.getReverseList(zero);
+		SingleNode result = list.getReverseList(zero);
 		printList(result);
 		
 	}
 
-	public static void printList(Node node) {
+	public static void printList(SingleNode singleNode) {
 		System.out.println("printing start");
-		while(node != null) {
+		while(singleNode != null) {
 			System.out.println("in loop");
-			System.out.print(node.getData());
-			node = node.getNext();
+			System.out.print(singleNode.getData());
+			singleNode = singleNode.getNext();
 		}
 	}
 }
