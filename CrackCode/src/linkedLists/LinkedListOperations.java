@@ -125,4 +125,9 @@ public class LinkedListOperations {
 		}
 		return headCopy;
 	}
+
+	public SingleNode updatedANode(SingleNode head, int updatedValue) {
+		//TODO
+		return head;
+	}
 }
