@@ -19,6 +19,10 @@ public class SingleNode {
 		this.setNext(next);
 	}
 	
+	public SingleNode (int value) {
+		this.setData(value);
+	}
+	
 	public SingleNode() {super();}
 	
 	@Override

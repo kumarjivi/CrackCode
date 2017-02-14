@@ -19,7 +19,7 @@ public class LinkedListOperations {
 	 * @param position: after which nodeToInsert should be inserted. 0 means at the start.
 	 * @return head of the SingleLinkeddList with nodeToInsert node inserted after specified position.
 	 */
-	public SingleNode insertNode(SingleNode head, SingleNode nodeToInsert, int position) {
+	public static SingleNode insertNode(SingleNode head, SingleNode nodeToInsert, int position) {
 		SingleNode headCopy = head;
 		int pos = 1;
 		if(position == 0) {
@@ -38,14 +38,14 @@ public class LinkedListOperations {
 		}
 	}
 	
-	private static SingleNode insertAtStart(SingleNode head, SingleNode nodeToInsert) {
+	public static SingleNode insertAtStart(SingleNode head, SingleNode nodeToInsert) {
 		if(nodeToInsert != null) {
 			nodeToInsert.setNext(head);
 		}
 		return nodeToInsert;
 	}
 	
-	private static SingleNode insertAtEnd(SingleNode head, SingleNode nodeToInsert) {
+	public static SingleNode insertAtEnd(SingleNode head, SingleNode nodeToInsert) {
 		SingleNode headCopy = head;
 		SingleNode prev = head;
 		while(head != null) {
@@ -56,7 +56,12 @@ public class LinkedListOperations {
 		return headCopy;
 	}
 	
-	public SingleNode deleteANode(SingleNode head, SingleNode nodeToDelete) {
+	public static SingleNode insertAtEnd(SingleNode head, int valueToInsert) {
+		SingleNode nodeToInsert = new SingleNode(valueToInsert);
+		return insertAtEnd(head, nodeToInsert);
+	}
+	
+	public static SingleNode deleteANode(SingleNode head, SingleNode nodeToDelete) {
 		if(head == nodeToDelete) {
 			return deleteFirstNode(head);
 		}
@@ -77,14 +82,14 @@ public class LinkedListOperations {
 		return headCopy;
 	}
 	
-	public SingleNode deleteFirstNode(SingleNode head) {
+	public static SingleNode deleteFirstNode(SingleNode head) {
 		if(head != null) {
 			return head.getNext();
 		}
 		return head;
 	}
 	
-	public SingleNode deleteLastNode(SingleNode head) {
+	public static SingleNode deleteLastNode(SingleNode head) {
 		SingleNode headCopy = head;
 		SingleNode prev = null;
 		SingleNode curr = head;
@@ -101,7 +106,7 @@ public class LinkedListOperations {
 		return headCopy;
 	}
 	
-	public SingleNode deleteNodeByPosition(SingleNode head, int positionToDelete) {
+	public static SingleNode deleteNodeByPosition(SingleNode head, int positionToDelete) {
 		SingleNode headCopy = head;
 		if(positionToDelete == 1) {
 			return deleteFirstNode(head);
