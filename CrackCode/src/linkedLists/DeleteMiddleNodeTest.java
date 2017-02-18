@@ -22,14 +22,6 @@ public class DeleteMiddleNodeTest {
 		node545.setNext(node57);
 		node57.setNext(node43);
 		node43.setNext(node54);
-//		LinkedListOperations.insertAtEnd(root, 53);
-//		LinkedListOperations.insertAtEnd(root, 24);
-//		LinkedListOperations.insertAtEnd(root, 64);
-//		LinkedListOperations.insertAtEnd(root, 546);
-//		LinkedListOperations.insertAtEnd(root, 545);
-//		LinkedListOperations.insertAtEnd(root, 57);
-//		LinkedListOperations.insertAtEnd(root, 43);
-//		LinkedListOperations.insertAtEnd(root, 54);
 		SingleLinkedListUtil.printList(root);
 		DeleteMiddleNode deleteMiddleNode = new DeleteMiddleNode();
 		deleteMiddleNode.deleteThisNode(node546);
