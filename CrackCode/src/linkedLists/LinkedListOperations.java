@@ -45,6 +45,21 @@ public class LinkedListOperations {
 		return nodeToInsert;
 	}
 	
+	//Inserts the nodeToInsert after pivotNode.
+	public static SingleNode insertAfter(SingleNode head, SingleNode nodeToInsert, SingleNode pivotNode) {
+		SingleNode headCopy = head;
+		while(headCopy != null) {
+			if(headCopy == pivotNode) {
+				nodeToInsert.setNext(headCopy.getNext());
+				headCopy.setNext(nodeToInsert);
+				break;
+			} else {
+				headCopy = headCopy.getNext();
+			}
+		}
+		return head;
+	}
+	
 	public static SingleNode insertAtEnd(SingleNode head, SingleNode nodeToInsert) {
 		SingleNode headCopy = head;
 		SingleNode prev = head;
