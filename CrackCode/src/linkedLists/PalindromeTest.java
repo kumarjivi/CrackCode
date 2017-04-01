@@ -19,5 +19,4 @@ public class PalindromeTest {
 		Palindrome palindrome = new Palindrome();
 		System.out.println(palindrome.isPalindrome(rootOne));
 	}
-
 }
