@@ -12,7 +12,7 @@ import java.util.List;
 public class Stack {
 	private List<Integer> list;
 	private int size;
-	private Integer top;
+	private int top;
 	
 	public Stack() {
 		list = new ArrayList<Integer>();
@@ -32,6 +32,7 @@ public class Stack {
 			return null; 
 		}
 		Integer value = list.get(top);
+		list.remove(top);
 		this.top--;
 		this.size--;
 		return value;
