@@ -49,4 +49,8 @@ public class Stack {
 		return this.size;
 	}
 	
+	public boolean isEmpty() {
+		return getSize() == 0;
+	}
+	
 }
