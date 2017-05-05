@@ -6,37 +6,46 @@ package stacksAndQueues;
  */
 
 public class QueueViaStacks {
-	Stack primary;
-	Stack secondary;
+	private Stack primary;
+	private Stack secondary;
+	private boolean lastActionPop;
 	
 	public QueueViaStacks() {
 		primary = new Stack();
 		secondary = new Stack();
+		lastActionPop = false;
 	}
 	
 	public boolean enqueue(int value) {
+		if(lastActionPop) {
+			System.out.println("In enqueue loop for value: "+value);
+			while(!secondary.isEmpty()) {
+				primary.push(secondary.pop());
+			}
+			lastActionPop = false;
+		}
 		return primary.push(value);
 	}
 	
 	public Integer dequeue() {
-		if(primary.isEmpty()) {
+		if(primary.isEmpty() && secondary.isEmpty()) {
 			return null;
 		}
-		while(!primary.isEmpty()) {
-			secondary.push(primary.pop());
+		if(!lastActionPop) {
+			while(!primary.isEmpty()) {
+				secondary.push(primary.pop());
+			}
+			lastActionPop = true;
+			System.out.println("In dequeue loop for: "+secondary.peek());
 		}
-		int val = secondary.pop();
-		while(!secondary.isEmpty()) {
-			primary.push(secondary.pop());
-		}
-		return val;
+		return secondary.pop();
 	}
 	
 	public boolean isEmpty() {
-		return primary.isEmpty();
+		return primary.isEmpty() && secondary.isEmpty();
 	}
 	
 	public int getSize() {
-		return primary.getSize();
+		return primary.getSize() + secondary.getSize();
 	}
 }
